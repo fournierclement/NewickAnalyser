@@ -1,0 +1,31 @@
+[LE TAXON z dans l'arbre T5 a ete oublie dans la section taxa]
+[ (au debut du fichier)]
+[ Resultat = indexOutOfBound dans le programme MLS]
+
+#nexus
+BEGIN taxa;
+DIMENSIONS ntax=8;
+TAXLABELS
+[1] a_1
+[2] b.b
+[3] c  
+[4] d
+[5] e
+[6] f
+[7] x
+[8] y
+;
+END [taxa];
+
+BEGIN trees;
+PROPERTIES PARTIALTREES=YES;
+tree T1 = [&R] (y)z;
+tree T2 = [&R] ((c)y)z;
+tree T3 = [&R] (((c,d)y,f,e),x);
+tree T4 = [&R] ((y)z,e,(a_1,b.b)x);
+tree T5 = [&R] ((c,d),f)z;
+END [trees];
+
+Begin ST_ASSUMPTIONS;
+        treestransform=GeneralAB GA=true;
+END [ST_ASSUMPTIONS];

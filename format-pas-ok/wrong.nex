@@ -1,0 +1,23 @@
+[Format non ok car l'arbre T1 comporte un espace au milieu]
+[de sa description]
+#nexus
+BEGIN taxa;
+DIMENSIONS ntax=6;
+TAXLABELS
+[1] a_1
+[2] b.b
+[5] e
+[7] x
+ y
+[9] z
+;
+END [taxa];
+
+BEGIN trees;
+PROPERTIES PARTIALTREES=YES;
+tree T4 = [&R] ((y),z,e,,(a_1,b.b)x);
+END [trees] ;
+
+Begin ST_ASSUMPTIONS;
+        treestransform=GeneralAB GA=true;
+END [ST_ASSUMPTIONS] ;

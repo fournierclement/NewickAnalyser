@@ -1,0 +1,26 @@
+[Un fichier au format correct]
+#nexus 
+BEGIN taxa;
+DIMENSIONS ntax=9;
+TAXLABELS
+[1] a_1 [un nom etrange mais qui passe]
+[2] b.b [un autre nom qui est acceptable]
+[3] c  [un nom de taxon plus standard]
+[4] d
+[5] e
+ f   [un taxon sans commentaire avant]
+[coucou ceci est un commentaire avant et ce qui suit un taxon : ] x
+[8] y
+[9] z
+;
+END [taxa];
+
+BEGIN trees;
+PROPERTIES PARTIALTREES=YES;
+tree T1 = [&R] (y)z;
+tree T2 = [&R] ((c)y)z;
+tree T3 = [&R] (((c,d)y,f,e),x);
+tree T4 = [&R] ((y)z,e,(a_1,b.b)x);
+tree T5 = [&R] ((c,d),f)z;
+END [trees];
+

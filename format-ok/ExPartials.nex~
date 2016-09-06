@@ -1,0 +1,32 @@
+[petit exemple qui fonctionne]
+[a noter que les mots-clef begin et end peuvent etre en minuscule ou majuscule]
+#nexus
+begin taxa;
+DIMENSIONS ntax=10;
+TAXLABELS
+[1] a
+[2] b
+[3] c
+[4] d
+[5] i1
+[6] i2
+[7] b2
+[8] i3
+[9] i4
+[10] i5
+;
+end [taxa];
+
+
+BEGIN trees;
+PROPERTIES PARTIALTREES=YES;
+tree T1 [&R] = (a,((b,b2)i5,(c,d)i1)i4);
+tree T2 [&R] = ((b,b2),(c,d)i2)i3;
+END [trees];
+
+Begin ST_ASSUMPTIONS;
+ GA=true 
+ treestransform=GeneralAB;
+END [ST_ASSUMPTIONS];
+
+
